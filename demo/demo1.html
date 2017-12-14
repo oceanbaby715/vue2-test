@@ -1,0 +1,30 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>demo-声明式渲染</title>
+	<link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"></head>
+<body>
+	<div class="container">
+		<div id="app" class="alert alert-primary" role="alert">{{ message }}</div>
+		<div id="app-2" class="alert alert-primary" role="alert">
+			<span v-bind:title="message">鼠标悬停几秒钟查看此处动态绑定的提示信息！</span>
+		</div>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+		  el: '#app',
+		  data: {
+		    message: 'Hello Vue!'
+		  }
+		})
+
+		var app2=new Vue({
+			el:"#app-2",
+			data:{
+				message:'页面加载于 ' + new Date().toLocaleString()
+			}
+		})
+	</script>
+</body>
+</html>
