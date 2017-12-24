@@ -1,0 +1,73 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>v-model实例</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<h1>v-model实例</h1>
+	<hr>
+	<div id="app">
+		{{message}}
+		<br>
+		<p>
+			<span>文本:</span>
+			<input type="text" v-model="message">
+			<br>
+			<br>
+			<span>v-model.lazy:</span>
+			<input type="text" v-model.lazy="message">
+			<br>
+			<br>
+			<span>v-model.number:</span>
+			<input type="text" v-model.number="message">
+			<br>
+			<br>
+			<span>v-model.trim:</span>
+			<input type="text" v-model.trim="message">
+			<hr>
+			<span>文本域</span>
+			<textarea v-model="message" cols="30" rows="10"></textarea>
+			<hr>
+			<span>多选框</span>
+			<input type="checkbox" id="isTrue" v-model="isTrue">
+			<label for="isTrue">{{isTrue}}</label>
+			<hr>
+			<p>
+				<span>多选框绑定数组</span>
+				<input type="checkbox" id="checkboxbox" value="checkboxbox" v-model="names">
+				<label for="checkboxbox">checkboxbox</label>
+				<input type="checkbox" id="checkboxbox1" value="checkboxbox1" v-model="names">
+				<label for="checkboxbox1">checkboxbox1</label>
+				<input type="checkbox" id="checkboxbox2" value="checkboxbox2" v-model="names">
+				<label for="checkboxbox2">checkboxbox2</label>
+			</p>
+			<p>
+				{{names}}
+			</p>
+			<hr>
+			<p>
+				<span>单选框绑定数组</span>
+				<input type="radio" id="radio" value="男" v-model="sex">
+				<label for="radio">男</label>
+				<input type="radio" id="radio1" value="女" v-model="sex">
+				<label for="radio1">女</label>
+			</p>
+			<p>
+				您选择的性别是：{{sex}}
+			</p>
+		</p>
+	</div>
+	<script>
+		var app=new Vue({
+			el:"#app",
+			data:{
+				message:'hello world!',
+				isTrue:true,
+				names:[],
+				sex:"女"
+			}
+		})
+	</script>
+</body>
+</html>
