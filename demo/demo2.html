@@ -1,0 +1,51 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>demo-条件与循环</title>
+	<link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"></head>
+<body>
+	<div class="container">
+		<div id="app-3" class="alert alert-primary" role="alert">
+			<p v-if="seen">现在你看到我了</p>
+			<button v-on:click="seen = !seen" type="button" class="btn btn-primary">显示/隐藏</button>
+		</div>
+		<div id="app-4">
+			<ul class="list-group">
+			  <li class="list-group-item"  v-for="todo in todos">{{ todo.text }}</li>
+			</ul>
+			<div class="btn-group" role="group" aria-label="Basic example">
+				<button v-on:click="add" type="button" class="btn btn-primary">添加</button>
+				<button v-on:click="del" type="button" class="btn btn-success">删除</button>
+			</div>
+			
+		</div>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app3=new Vue({
+			el:"#app-3",
+			data:{
+				seen:true
+			}
+		})
+		var app4=new Vue({
+			el:"#app-4",
+			data:{
+				todos:[
+					{ text: '学习 JavaScript' },
+			      	{ text: '学习 Vue' },
+			      	{ text: '整个牛项目' }
+				]
+			},
+			methods:{
+				add:function(){
+					this.todos.push({text:'新增项'+(this.todos.length+1)})
+				},
+				del:function(){
+					this.todos.pop()
+				}
+			}
+		})
+	</script>
+</body>
+</html>
