@@ -1,0 +1,29 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>component-2组件  props</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<h1>component-2组件  props</h1>
+	<hr>
+	<div id="app">
+		<!-- <terry here="shanghai"></terry> -->
+		<terry :here="message"></terry>
+	</div>
+	<script>
+		var app=new Vue({
+			el:"#app",
+			data:{
+				message:'shanghai'
+			},
+			components:{
+				"terry":{
+					template:`<div style="color:green">terry from {{here}}</div>`,
+					props:['here']
+				}
+			}
+		})
+	</script>
+</body>
+</html>

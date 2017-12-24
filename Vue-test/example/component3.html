@@ -1,0 +1,40 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>component-3组件 父子组件关系</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<h1>component-3组件  父子组件关系</h1>
+	<hr>
+	<div id="app">
+		<!-- <terry here="shanghai"></terry> -->
+		<terry></terry>
+	</div>
+	<script>
+		var cityComponent={
+			template:`
+				<div style="color:red">shanghai of china</div>
+			`
+		}
+		var terryComponent={
+			template:`
+				<div>
+				<div style="color:green">terry from shanghai</div>
+				<city><city>
+				</div>
+			`,
+			components:{
+				"city":cityComponent
+			}
+		}
+		
+		var app=new Vue({
+			el:"#app",
+			components:{
+				"terry":terryComponent
+			}
+		})
+	</script>
+</body>
+</html>

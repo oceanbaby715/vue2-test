@@ -1,0 +1,37 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.set 全局操作实例</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<h1>Vue.set 全局操作实例</h1>
+	<hr>
+	<div id="app">
+		{{goods}}:{{count}}
+		<br>
+		<ul>
+			<li v-for="item in arr">{{item}}</li>
+		</ul>
+	</div>
+	<P><button onclick="add()">add</button></P>
+	<script>
+		function add(){
+			// Vue.set(outData,'count',2);
+			// app.count++
+			// outData.count++;
+			// app.arr[1]='ddd'
+			Vue.set(app.arr,1,'dd')
+		}
+		var outData={
+			count:1,
+			goods:"car",
+			arr:['aaa','bbb','ccc']
+		}
+		var app=new Vue({
+			el:"#app",
+			data:outData
+		})
+	</script>
+</body>
+</html>

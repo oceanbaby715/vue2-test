@@ -1,0 +1,28 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>component-1组件</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<h1>component-1组件</h1>
+	<hr>
+	<div id="app">
+		<terry></terry>
+		<terry2></terry2>
+	</div>
+	<script>
+		Vue.component('terry',{
+			template:`<div style="color:red">我是全局的terry组件</div>`
+		})
+		var app=new Vue({
+			el:"#app",
+			components:{
+				"terry2":{
+					template:`<div style="color:green">我是局部的terry2组件</div>`
+				}
+			}
+		})
+	</script>
+</body>
+</html>
