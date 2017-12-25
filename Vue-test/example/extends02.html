@@ -1,0 +1,55 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Extends</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<h1>Extends</h1>
+	<hr>
+	<div id="app">
+		
+	</div>
+	<p>
+		<button onclick="destroy()">destroy</button>
+	</p>
+	<p>
+		<button onclick="reload()">reload</button>
+	</p>
+	<p>
+		<button onclick="tick()">tick</button>
+	</p>
+	<script>
+		var terry=Vue.extend({
+			template:`<p>{{message}}</p>`,
+			data:function(){
+				return {
+					message:'Hello,I Am Terry.'
+				}
+			},
+			mounted:function(){
+				console.log("mounted 被创建")
+			},
+			destroyed:function(){
+				console.log("destroy 销毁之后")
+			},
+			updated:function(){
+				console.log("updated 更新之后")
+			}
+		})
+		var app=new terry().$mount("#app")
+		function destroy(){
+			app.$destroy();
+		}
+		function reload(){
+			app.$forceUpdate()
+		}
+		function tick(){
+		    app.message="update message info ";
+		    app.$nextTick(function(){
+		        console.log('message更新完后我被调用了');
+		    })
+		}
+	</script>
+</body>
+</html>

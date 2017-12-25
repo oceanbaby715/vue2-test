@@ -1,0 +1,33 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Extends</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	<h1>Extends</h1>
+	<hr>
+	<div id="app">
+		{{message}}
+	</div>
+
+	<script>
+		var app=new Vue({
+			el:"#app",
+			data:{
+				message:'hello world!'
+			},
+			mounted:function(){
+				$("#app").html("我是通过jquery修改的")
+			},
+			methods:{
+				add:function(){
+					console.log("调用了构造器内部的add方法")
+				}
+			}
+		})
+		app.add()
+	</script>
+</body>
+</html>

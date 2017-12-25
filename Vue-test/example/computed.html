@@ -1,0 +1,56 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>computed Option</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<h1>computed Option</h1>
+	<hr>
+	<div id="app">
+		{{message}}
+		<br>
+		{{newPrice}}
+		<br>
+		<ul>
+			<li v-for="item in reversNewList">
+				{{item.title}}---{{item.date}}
+			</li>
+		</ul>
+		
+	</div>
+	<script>
+		var newsList=[{
+			title:'房价会不会大跌？住建部发声透露2018楼市四大信号',
+			date:'2017-12-01'
+		},
+		{
+			title:'港媒：中铁建获孟加拉铁路项目 金额约85亿人民币',
+			date:'2017-12-10'
+		},
+		{
+			title:'海外中国台湾促统联盟成立：统一才是爱台湾',
+			date:'2017-12-11'
+		},{
+			title:'亚投行晒两周年成绩单 回应为何刚投对华首个项目',
+			date:'2017-12-24'
+		}]
+		var app=new Vue({
+			el:"#app",
+			data:{
+				message:'hello world!',
+				price:100,
+				list:newsList
+			},
+			computed:{
+				newPrice:function(){
+					return this.price='￥'+this.price+"元"
+				},
+				reversNewList:function(){
+					return this.list.reverse()
+				}
+			}
+		})
+	</script>
+</body>
+</html>

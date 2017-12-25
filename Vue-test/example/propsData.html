@@ -1,0 +1,31 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>propsData Option</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<h1>propsData Option</h1>
+	<hr>
+	<header></header>
+
+	<script>
+		var header_a=Vue.extend({
+			template:`
+			<p>{{message}}--{{a}}</p>
+			`,
+			data:function(){
+				return {
+					message:'Hello,I am header!'
+				}
+			},
+			props:['a']
+		})
+		new header_a({
+			propsData:{
+				a:1
+			}
+		}).$mount('header');
+	</script>
+</body>
+</html>

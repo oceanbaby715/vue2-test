@@ -1,0 +1,60 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Extends 03</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<h1>Extends 03</h1>
+	<hr>
+	<div id="app">
+		{{count}}
+		<p>
+			<button @click="add">add</button>
+		</p>
+
+	</div>
+	<p>
+		<button onclick="reduce()">reduce</button>
+	</p>
+	<p>
+		<button onclick="reduceOnce()">reduceOnce</button>
+	</p>
+	<p>
+		<button onclick="off()">off reduce</button>
+	</p>
+	<script>
+		var app=new Vue({
+			el:"#app",
+			data:{
+				count:0
+			},
+			methods:{
+				add:function(){
+					this.count++;
+				}
+			}
+		})
+
+		app.$on("reduce",function(){
+			console.log("执行了reduce方法")
+			this.count--;
+		})
+		app.$once('reduceOnce',function(){
+		    console.log('只执行一次的方法');
+		    this.num--;
+		 
+		});
+		function reduce(){
+			app.$emit("reduce")
+		}
+		function reduceOnce(){
+			app.$emit("reduceOnce")
+		}
+		function off(){
+			app.$off('reduce');
+			console.log('reduce方法已经被关闭，不能再使用了');
+		}
+	</script>
+</body>
+</html>

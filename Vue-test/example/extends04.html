@@ -1,0 +1,43 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Slot content extend demo</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<h1>Slot content extend demo</h1>
+	<hr>
+	<div id="app">
+		<terry>
+			<span slot="blogUrl">{{terry.blogUrl}}</span>
+			<span slot="netName">{{terry.netName}}</span>
+			<span slot="skill">{{terry.skill}}</span>
+		</terry>
+	</div>
+	<template id="template">
+		<div>
+			<p>博客地址:<slot name="blogUrl"></slot></p>
+			<p>网名:<slot name="netName"></slot></p>
+			<p>技能:<slot name="skill"></slot></p>
+		</div>
+	</template>
+	<script>
+		var template={
+			template:'#template'
+		}
+		var app=new Vue({
+			el:"#app",
+			data:{
+				terry:{
+					blogUrl:'http://www.intolearn.com',
+					netName:"oceanbaby715",
+					skill:'web前端'
+				}
+			},
+			components:{
+				"terry":template
+			}
+		})
+	</script>
+</body>
+</html>
